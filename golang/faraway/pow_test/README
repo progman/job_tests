@@ -1,0 +1,34 @@
+Job test by Alexey Potehin <gnuplanet@gmail.com>, http://www.overtask.org/doc/cv
+
+
+Просто запустите go.sh - с помощью docker compose будут собраны контейнеры сервера и клиента, запущены, реализован proof-of-work и выведен результат на экран.
+
+
+Test task for Server Engineer
+
+Design and implement “Word of Wisdom” tcp server.
+ • TCP server should be protected from DDOS attacks with the Proof of Work (https://en.wikipedia.org/wiki/Proof_of_work), the challenge-response protocol should be used.
+ • The choice of the POW algorithm should be explained.
+ • After Proof Of Work verification, server should send one of the quotes from “word of wisdom” book or any other collection of the quotes.
+ • Docker file should be provided both for the server and for the client that solves the POW challenge
+
+
+https://ru.wikipedia.org/wiki/%D0%94%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D1%82%D0%B2%D0%BE_%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F_%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B
+
+
+В 1997 году Адам Бэк запустил проект Hashcash, посвящённый защите от спама.
+Задача формулировалась следующим образом: «Найти такое значение x, что хеш SHA(x) содержал бы N старших нулевых бит».
+
+
+Вскоре Сатоси Накамото предложил криптовалюту биткойн, где доказательство выполнения работы использовано для значительного усложнения двойного расходования.
+Было предложено нахождение хеша блока информации через функцию SHA-256 с подбором параметров, чтобы у результата заданное число старших бит было нулевым.
+
+
+"The proof-of-work involves scanning for a value that when hashed, such as with SHA-256, the hash begins with a number of zero bits.
+The average work required is exponential in the number of zero bits required and can be verified by executing a single hash."
+- Satoshi Nakamoto, Bitcoin: A Peer-to-Peer Electronic Cash System, https://bitcoin.org/bitcoin.pdf
+
+
+Эта цитата из статьи Сатоши Накамото объясняет основной принцип PoW:
+Процесс PoW включает в себя поиск значения (nonce), которое при хешировании (например, с помощью SHA-256) дает хеш, начинающийся с определенного количества нулевых битов.
+Среднее количество работы, необходимое для этого, экспоненциально зависит от количества требуемых нулевых битов и может быть проверено путем выполнения одного хеширования.

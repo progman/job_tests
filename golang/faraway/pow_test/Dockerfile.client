@@ -1,0 +1,9 @@
+FROM golang:1.22.5-alpine3.20
+
+WORKDIR /app
+
+COPY pow-client.go lib.go .
+
+RUN go build -o pow-client pow-client.go lib.go
+
+CMD ["./pow-client"]

@@ -1,0 +1,40 @@
+services:
+
+
+    pow-server:
+        container_name: pow-server
+        image: pow-server:latest
+        build:
+            context: .
+            dockerfile: Dockerfile.server
+        environment:
+            - SERVER_HOST=pow-server
+            - SERVER_PORT=54321
+            - DIFFICULTY=2
+            - CHALLENGE_LENGTH=10
+        ports:
+            - "54321:54321"
+        expose:
+            - "54321"
+        networks:
+            - pow-network
+
+
+    pow-client:
+        container_name: pow-client
+        image: pow-client:latest
+        build:
+            context: .
+            dockerfile: Dockerfile.client
+        environment:
+            - SERVER_HOST=pow-server
+            - SERVER_PORT=54321
+        depends_on:
+            - pow-server
+        networks:
+            - pow-network
+
+
+networks:
+    pow-network:
+        driver: bridge
